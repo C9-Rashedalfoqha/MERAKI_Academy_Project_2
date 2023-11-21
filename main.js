@@ -233,13 +233,20 @@ const navPar = $(`<div id="nav-par"><nav id="nav">
 </li></ul></nav></div>`);
 getByBody.append(navPar);
 const createParentDiv = $(`<div id="parent-div"></div>`);
-product.forEach((elem) => {
+product.forEach((elem,index) => {
   const createProductDiv = $(`<div id="div-img"></div>`);
 
   const createImgTag = $(
-    `<tittle>${elem.title}</tittle><img src="${elem.imageSrc}" alt=""><br/><p>${elem.description}</p>`
+    `<tittle id="title">${elem.title}</tittle></br><img src="${elem.imageSrc}" alt=""><br/><p>${elem.description}</p>`
   );
   createProductDiv.append(createImgTag);
   getByBody.append(createParentDiv);
   createParentDiv.append(createProductDiv);
+  createImgTag.click(()=>{
+createParentDiv.remove()
+const divProduct=$(`<div></div>`)
+const createImg=$(`<tittle id="title">${elem.title}</tittle></br><img src="${elem.imageSrc}" alt=""><br/><p>${elem.description}</p><p>${elem.id}</p>`)
+getByBody.append(divProduct)
+divProduct.append(createImg)
+})
 });
