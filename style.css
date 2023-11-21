@@ -42,16 +42,20 @@ li {
   padding: 70px;
 }
 #div-img {
-
-    background-color: antiquewhite;
+  background-color: antiquewhite;
   border-radius: 10px;
   padding: 10px;
 }
 img {
-    
   height: 150px;
   width: 200px;
 }
-#title{
+#title {
   text-align: center;
+}
+#product {
+  display: flex;
+  justify-content: center;
+  background-color: antiquewhite;
+  margin-left: 150px;
 }
