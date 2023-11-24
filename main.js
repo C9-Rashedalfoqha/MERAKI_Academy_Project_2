@@ -1,4 +1,5 @@
-const addToCart = JSON.parse(localStorage.getItem("cart")) || [];
+const addToCart =[]||JSON.parse(localStorage.getItem("cart")) 
+console.log(addToCart);
 const product = [
   {
     id: 1,
@@ -152,6 +153,7 @@ const product = [
     fav: true,
   },
 ];
+
 const getByBody = $("body");
 const navPar = $(`<div id="nav-par"><nav id="nav">
 <h1 id="logo">LOGO</h1 ><ul id="par">
@@ -180,11 +182,14 @@ product.forEach((elem, index) => {
   });
   const buttonAdd = $(
     `<button id="add-to-cart" data-index="${index}">Add to Cart</button>`
+    
   );
+
 
   buttonAdd.click(() => {
     addToList(index);
   });
+
   const tittle = $(`<p id="title"><a href="#">${elem.title}</a></p>`);
   const paragraph = $(`<p id="anotherPage">${elem.description}</p>`);
   const price = $(`<p id="price">$${elem.price}</p>`);
@@ -221,14 +226,13 @@ product.forEach((elem, index) => {
   });
 });
 const addToList = (index) => {
-  
-  addToCart.push(product[index]);
+  addToCart.push(product[index])
   console.log("Product added to cart:", product[index]);
-  console.log("Cart contents:", addToCart);
+  console.log("Cart contents:",  addToCart);
   localStorage.setItem("cart", JSON.stringify(addToCart));
 };
+
 addToList();
-console.log(addToCart);
 const homeList = $("#home");
 homeList.click(() => {
   location.reload();
@@ -251,7 +255,6 @@ About.click(() => {
 const cartContainer = $(`<div id="cart-container"></div>`);
 getByBody.append(cartContainer);
 const cart = $(".fa");
-const AddToCard = $(``);
 cart.click(() => {
   container.remove();
   cartContainer.empty();
