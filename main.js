@@ -1,4 +1,4 @@
-const addToCart = [];
+const addToCart = JSON.parse(localStorage.getItem("cart")) || [];
 const product = [
   {
     id: 1,
@@ -155,7 +155,7 @@ const product = [
 const getByBody = $("body");
 const navPar = $(`<div id="nav-par"><nav id="nav">
 <h1 id="logo">LOGO</h1 ><ul id="par">
-<input id="search" type="text"/>
+<input id="search" type="text" />
 <li id="home"><a href="#">Home</a>
 </li><li id="Product"><a href="#">Product</a>
 </li><li id="about"><a href="#">About</a>
@@ -171,26 +171,29 @@ product.forEach((elem, index) => {
   const createImgTag = $(`<img id="img"src="${elem.imageSrc}" alt="">`);
   const fav = $(
     `<i class="material-icons" style="font-size:25px;color:${
-      elem.fav ? "red" : "white"
+      false ? "red" : "white"
     }">favorite</i>`
   );
   fav.click(() => {
-    elem.fav;
+    elem.fav = !elem.fav;
+    fav.css("color", elem.fav ? "red" : "white");
   });
-  const selectButton = $("#add-cart");
-  selectButton.click(() => {
+  const buttonAdd = $(
+    `<button id="add-to-cart" data-index="${index}">Add to Cart</button>`
+  );
+
+  buttonAdd.click(() => {
     addToList(index);
   });
   const tittle = $(`<p id="title"><a href="#">${elem.title}</a></p>`);
   const paragraph = $(`<p id="anotherPage">${elem.description}</p>`);
-  const price = $(`<p>$${elem.price}</p>`);
+  const price = $(`<p id="price">$${elem.price}</p>`);
   const rate = $(`
   <span class="fa fa-star checked"></span>
   <span class="fa fa-star checked"></span>
   <span class="fa fa-star checked"></span>
   <span class="fa fa-star"></span>
   <span class="fa fa-star"></span></br>`);
-  const buttonAdd = $(`<button>addToCart</button>`);
   createProductDiv.append(
     createImgTag,
     fav,
@@ -202,7 +205,6 @@ product.forEach((elem, index) => {
   );
   container.append(createParentDiv);
   createParentDiv.append(createProductDiv);
-  const select = $("#anotherPage");
   tittle.click(() => {
     createParentDiv.remove();
     const divProduct = $(`<div id="product"></div>`);
@@ -212,18 +214,21 @@ product.forEach((elem, index) => {
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star checked"></span>
       <span class="fa fa-star"></span>
-      <span class="fa fa-star"></span></p></br><img id="imgOnly" src="${elem.imageSrc}" alt="" ><br/><p id="paragraph">${elem.description}</p><p>${elem.id}</p><button id="add-cart">addToCart</button>`
+      <span class="fa fa-star"></span></p></br><img id="imgOnly" src="${elem.imageSrc}" alt="" ><br/><p id="paragraph">${elem.description}</p><p>${elem.id}</p></br><button id="add-cart">addToCart</button>`
     );
     container.append(divProduct);
     divProduct.append(createImg);
   });
 });
 const addToList = (index) => {
-  console.log(addToCart.push(product[index]));
-
+  
+  addToCart.push(product[index]);
+  console.log("Product added to cart:", product[index]);
+  console.log("Cart contents:", addToCart);
+  localStorage.setItem("cart", JSON.stringify(addToCart));
 };
 addToList();
-
+console.log(addToCart);
 const homeList = $("#home");
 homeList.click(() => {
   location.reload();
@@ -239,4 +244,29 @@ About.click(() => {
   container.remove();
   getByBody.append(divAbout);
   divAbout.append(about);
+});
+
+// search input
+// <i style="font-size:24px" class="fa">&#xf002;</i>
+const cartContainer = $(`<div id="cart-container"></div>`);
+getByBody.append(cartContainer);
+const cart = $(".fa");
+const AddToCard = $(``);
+cart.click(() => {
+  container.remove();
+  cartContainer.empty();
+  if (addToCart.length === 0) {
+    cartContainer.append(`<p>Your cart is empty</p>`);
+  } else {
+    addToCart.forEach((elem) => {
+      const cartElem = $(`
+        <div class="cart-elem">
+          <img src="${elem.imageSrc}" alt="">
+          <p>${elem.title}</p>
+          <p>$${elem.price}</p>
+        </div>
+      `);
+      cartContainer.append(cartElem);
+    });
+  }
 });
