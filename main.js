@@ -328,8 +328,8 @@ const about = $(`
 `);
 
 About.click(() => {
-  container.remove();
-  getByBody.append(divAbout);
+  createParentDiv.remove();
+  container.append(divAbout);
   divAbout.append(about);
 });
 
@@ -380,8 +380,8 @@ const loginDiv =
   $(`<div class="login"><h1>Login</h1><input type="text" class="user" placeholder="UserName">
 <input type="password" class="pass" placeholder="password"></br><button class='submit'>submit</button><h2><a href="#" class="reg">Registration</a></h2></div>`);
 $("#login").click(() => {
-  container.remove();
-  getByBody.append(loginDiv);
+  createParentDiv.remove();
+  container.append(loginDiv);
 });
 const regDiv =
   $(`<div class="registration"><h1>Login</h1><input type="email" class="pass" placeholder="password"><input type="text" class="user" placeholder="UserName">

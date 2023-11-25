@@ -33,7 +33,7 @@ li {
   padding: 30px;
   margin-left: 50px;
 }
-#parent-div{
+#parent-div,#cart-container{
   background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
