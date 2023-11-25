@@ -46,7 +46,7 @@ li {
   padding: 10px;
   height: 500px;
 }
-#img {
+.product-image {
   height: 250px;
   width: 250px;
 }
