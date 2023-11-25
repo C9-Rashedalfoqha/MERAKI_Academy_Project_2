@@ -386,6 +386,7 @@ const error = (err) => {
   con.text(err);
   getByBody.append(con);
 };
+const loginDiv=$(`<d></div>`)
 $("#login").click(()=>{
-
+container.remove()
 })
