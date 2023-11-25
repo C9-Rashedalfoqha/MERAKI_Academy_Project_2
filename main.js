@@ -328,7 +328,7 @@ const about = $(`
 `);
 
 About.click(() => {
-  createParentDiv.remove();
+  createParentDiv.remove()
   container.append(divAbout);
   divAbout.append(about);
 });
@@ -380,6 +380,7 @@ const loginDiv =
   $(`<div class="login"><h1>Login</h1><input type="text" class="user" placeholder="UserName">
 <input type="password" class="pass" placeholder="password"></br><button class='submit'>submit</button><h2><a href="#" class="reg">Registration</a></h2></div>`);
 $("#login").click(() => {
+  // $("#about").remove()
   createParentDiv.remove();
   container.append(loginDiv);
 });
