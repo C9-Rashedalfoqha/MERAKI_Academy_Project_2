@@ -33,7 +33,7 @@ li {
   padding: 30px;
   margin-left: 50px;
 }
-#parent-div {
+#parent-div{
   background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -113,4 +113,32 @@ h1{
 }
 .them{
   padding: 0;
+}
+.login{
+ display: flex ;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ border: 1px solid red;
+ width: 500px;
+ height: 700px;
+ position: relative;
+ left: 700px;
+ margin-top: 20px;
+}
+.user,.pass{
+  width: 300px;
+  height: 30px;
+  margin: 10px;
+  box-shadow: 3px 3px;
+  
+  
+}
+.submit{
+  width: 300px;
+  height: 30px;
+  box-shadow: 3px 3px;
+}
+.reg{
+  margin-top:300px;
 }

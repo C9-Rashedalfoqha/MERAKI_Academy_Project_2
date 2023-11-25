@@ -1,7 +1,7 @@
 const addToCart = [] || JSON.parse(localStorage.getItem("cart"));
 const FavList = [] || JSON.parse(localStorage.getItem("fav"));
 const getByContainer = $(".container");
-let ahmad=[]
+let ahmad = [];
 $.ajax({
   url: "https://fakestoreapi.com/products",
   success: (data) => {
@@ -192,18 +192,8 @@ getByBody.append(container);
 
 const createParentDiv = $(`<div id="parent-div"></div>`);
 const ajaxProduct = (data) => {
-  ahmad=data
+  ahmad = data;
   data.forEach((elem, index) => {
-    const darkThem=$(".them")
-darkThem.click(()=>{
-  $("#parent-div").css("background","black")
-  $("p").css("color","white")
-  darkThem.click(()=>{
-    $("#parent-div").css("background","white")
-    $("p").css("color","black")
-  })
-})
-
     const createProductDiv = $(`<div class="product-item"></div>`);
     const createImgTag = $(
       `<img class="product-image" src="${elem.image}" alt="">`
@@ -222,8 +212,8 @@ darkThem.click(()=>{
       if (elem.fav === true) {
         localStorage.setItem("fav", JSON.stringify(favList));
         const FavList = $(`<div class="fav-elem" date="index">
-      <img src="${elem.image}" alt="">
-      <p>${elem.title}</p>
+      <img  class="product-image" src="${elem.image}" alt="">
+      <p class="product-title">${elem.title}</p>
       <p>$${elem.price}</p>
       <button class="del-fav">delete</button>
     </div>`);
@@ -355,10 +345,10 @@ cart.click(() => {
   } else {
     addToCart.forEach((elem, index) => {
       const cartElem = $(`
-        <div class="cart-elem" data-index="${index}">
-          <img src="${elem.image}" alt="">
-          <p>${elem.title}</p>
-          <p>$${elem.price}</p>
+        <div class="product-image" data-index="${index}">
+          <img src="${elem.image}"  class="product-image" alt="">
+          <p class="product-title">${elem.title}</p>
+          <p class="product-price">$${elem.price}</p>
           <button class="btn-del">delete</button>
         </div>
       `);
@@ -386,7 +376,25 @@ const error = (err) => {
   con.text(err);
   getByBody.append(con);
 };
-const loginDiv=$(`<d></div>`)
-$("#login").click(()=>{
-container.remove()
-})
+const loginDiv =
+  $(`<div class="login"><h1>Login</h1><input type="text" class="user" placeholder="UserName">
+<input type="password" class="pass" placeholder="password"></br><button class='submit'>submit</button><h2><a href="#" class="reg">Registration</a></h2></div>`);
+$("#login").click(() => {
+  container.remove();
+  getByBody.append(loginDiv);
+});
+const regDiv =
+  $(`<div class="registration"><h1>Login</h1><input type="email" class="pass" placeholder="password"><input type="text" class="user" placeholder="UserName">
+<input type="password" class="pass" placeholder="password"><input type="password" class="pass" placeholder="con password"></br><button class='submit'>submit</button>`);
+const select = $(".reg");
+select.click(() => {});
+const darkThem = $(".them");
+darkThem.click(() => {
+  $("#parent-div").css("background", "black");
+  $("p").css("color", "white");
+  darkThem.click(() => {
+    $("#parent-div").css("background", "white");
+    $("p").css("color", "black");
+  });
+});
+$(".submit").click(() => {});
