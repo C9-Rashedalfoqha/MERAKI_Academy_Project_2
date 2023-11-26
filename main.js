@@ -1,159 +1,170 @@
 const addToCart = [] || JSON.parse(localStorage.getItem("cart"));
 const FavList = [] || JSON.parse(localStorage.getItem("fav"));
-console.log(addToCart);
-const product = [
-  {
-    id: 1,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    fav: false,
-    price: 25,
+const getByContainer = $(".container");
+let ahmad = [];
+$.ajax({
+  url: "https://fakestoreapi.com/products",
+  success: (data) => {
+    console.log(data);
+    ajaxProduct(data);
   },
-  {
-    id: 2,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    fav: false,
-    price: 25,
+  error: (err) => {
+    error("error in the website");
   },
-  {
-    id: 3,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 4,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description:
-      "some description about productsome description about productsome description about productsome description about productsome description about productsome description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 5,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 6,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 14,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 8,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 9,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 10,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 11,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 11,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 11,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 11,
-    title: "about product",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-  {
-    id: 11,
-    title: "rashed",
-    imageSrc:
-      "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    description: "some description about product",
-    rate: 10,
-    price: 25,
-    fav: false,
-  },
-];
+});
+// const product = [
+//   {
+//     id: 1,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     fav: false,
+//     price: 25,
+//   },
+//   {
+//     id: 2,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     fav: false,
+//     price: 25,
+//   },
+//   {
+//     id: 3,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 4,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description:
+//       "some description about productsome description about productsome description about productsome description about productsome description about productsome description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 5,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 6,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 14,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 8,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 9,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 10,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 11,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 11,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 11,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 11,
+//     title: "about product",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+//   {
+//     id: 11,
+//     title: "rashed",
+//     image:
+//       "https://images.pexels.com/photos/19026031/pexels-photo-19026031/free-photo-of-marina-at-the-asy-plato-in-kazakhstan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+//     description: "some description about product",
+//     rate: 10,
+//     price: 25,
+//     fav: false,
+//   },
+// ];
 
 const getByBody = $("body");
 const navPar = $(`
@@ -166,6 +177,9 @@ const navPar = $(`
         <li id="about"><a href="#">About</a></li>
         <li id="fav"><a href="#">favList</a></li>
         <li><a href="#"><i style="font-size:24px" class="fa">&#xf07a;</i></a></li>
+        <button class="them">dark and white</button>
+        <li id="login"><a href="#">login</a></li>
+
 
       </ul>
     </nav>
@@ -177,80 +191,85 @@ const container = $(`<div id="container"></div>`);
 getByBody.append(container);
 
 const createParentDiv = $(`<div id="parent-div"></div>`);
-
-product.forEach((elem, index) => {
-  const createProductDiv = $(`<div class="product-item"></div>`);
-  const createImgTag = $(
-    `<img class="product-image" src="${elem.imageSrc}" alt="">`
-  );
-  const fav = $(`
+const ajaxProduct = (data) => {
+  ahmad = data;
+  data.forEach((elem, index) => {
+    const createProductDiv = $(`<div class="product-item"></div>`);
+    const createImgTag = $(
+      `<img class="product-image" src="${elem.image}" alt="">`
+    );
+    const fav = $(`
     <i class="material-icons" style="font-size:25px;color:${
       elem.fav ? "red" : "white"
     }">favorite</i>
   `);
-  const favList = $(`<div id="fav-list"></div>`);
+    const favList = $(`<div id="fav-list"></div>`);
 
-  fav.click(() => {
-    elem.fav = !elem.fav;
+    fav.click(() => {
+      elem.fav = !elem.fav;
 
-    fav.css("color", elem.fav ? "red" : "white");
-    if (elem.fav === true) {
-      localStorage.setItem("fav", JSON.stringify(favList));
-      const FavList = $(`<div class="fav-elem" date="index">
-      <img src="${elem.imageSrc}" alt="">
-      <p>${elem.title}</p>
+      fav.css("color", elem.fav ? "red" : "white");
+      if (elem.fav === true) {
+        localStorage.setItem("fav", JSON.stringify(favList));
+        const FavList = $(`<div class="fav-elem" date="index">
+      <img  class="product-image" src="${elem.image}" alt="">
+      <p class="product-title">${elem.title}</p>
       <p>$${elem.price}</p>
       <button class="del-fav">delete</button>
     </div>`);
-      container.append(favList);
-      favList.append(FavList);
-    } else {
-      favList.find(".del-fav").click(() => {
-        FavList.splice(index, 1);
-        localStorage.setItem("fav", JSON.stringify(favList));
-        FavList.remove();
-      })
-    }
-   
-  });
-  $("#fav").click(() => {
-    container.remove();
-    getByBody.append(favList);
-  });
-  const buttonAdd = $(`
+        favList.append(FavList);
+      } else if (elem.fav === false) {
+        favList.click(() => {
+          FavList.splice(index, 1);
+          localStorage.setItem("fav", JSON.stringify(favList));
+          FavList.remove();
+        });
+      }
+      {
+      }
+    });
+    $("#fav").click(() => {
+      container.remove();
+      getByBody.append(favList);
+    });
+    const buttonAdd = $(`
     <button class="add-to-cart" data-index="${index}">Add to Cart</button>
   `);
 
-  buttonAdd.click(() => {
-    addToList(index);
-  });
+    buttonAdd.click(() => {
+      addToList(index);
+    });
 
-  const title = $(`<p class="product-title"><a href="#">${elem.title}</a></p>`);
-  const paragraph = $(`<p class="product-description">${elem.description}</p>`);
-  const price = $(`<p class="product-price">$${elem.price}</p>`);
-  // const rate = $(`
-  //   <span class="fa fa-star checked"></span>
-  //   <span class="fa fa-star checked"></span>
-  //   <span class="fa fa-star checked"></span>
-  //   <span class="fa fa-star"></span>
-  //   <span class="fa fa-star"></span>
-  // `);
+    const title = $(
+      `<p class="product-title"><a href="#">${elem.title}</a></p>`
+    );
+    const paragraph = $(
+      `<p class="product-description">${elem.description}</p>`
+    );
+    const price = $(`<p class="product-price">$${elem.price}</p>`);
+    // const rate = $(`
+    //   <span class="fa fa-star checked"></span>
+    //   <span class="fa fa-star checked"></span>
+    //   <span class="fa fa-star checked"></span>
+    //   <span class="fa fa-star"></span>
+    //   <span class="fa fa-star"></span>
+    // `);
 
-  createProductDiv.append(
-    createImgTag,
-    fav,
-    title,
-    paragraph,
-    price,
-    buttonAdd
-  );
-  container.append(createParentDiv);
-  createParentDiv.append(createProductDiv);
+    createProductDiv.append(
+      createImgTag,
+      fav,
+      title,
+      paragraph,
+      price,
+      buttonAdd
+    );
+    container.append(createParentDiv);
+    createParentDiv.append(createProductDiv);
 
-  title.click(() => {
-    createParentDiv.remove();
-    const divProduct = $(`<div id="product"></div>`);
-    const createImg = $(`
+    title.click(() => {
+      createParentDiv.remove();
+      const divProduct = $(`<div id="product"></div>`);
+      const createImg = $(`
       <p class="product-title">${elem.title}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <span class="fa fa-star checked"></span>
@@ -260,21 +279,21 @@ product.forEach((elem, index) => {
         <span class="fa fa-star"></span>
       </p>
       <br/>
-      <img class="product-image" src="${elem.imageSrc}" alt="">
+      <img class="product-image" src="${elem.image}" alt="">
       <br/>
       <p class="product-paragraph">${elem.description}</p>
       <p>${elem.id}</p>
       <br/>
       <button class="add-cart"data-index="${index}">Add to Cart</button>
     `);
-    container.append(divProduct);
-    divProduct.append(createImg);
+      container.append(divProduct);
+      divProduct.append(createImg);
+    });
   });
-});
-
+};
 const addToList = (index) => {
-  addToCart.push(product[index]);
-  console.log("Product added to cart:", product[index]);
+  addToCart.push(ahmad[index]);
+  // console.log("Product added to cart:", elem[index]);
   console.log("Cart contents:", addToCart);
   localStorage.setItem("cart", JSON.stringify(addToCart));
 };
@@ -309,8 +328,8 @@ const about = $(`
 `);
 
 About.click(() => {
-  container.remove();
-  getByBody.append(divAbout);
+  createParentDiv.remove()
+  container.append(divAbout);
   divAbout.append(about);
 });
 
@@ -326,10 +345,10 @@ cart.click(() => {
   } else {
     addToCart.forEach((elem, index) => {
       const cartElem = $(`
-        <div class="cart-elem" data-index="${index}">
-          <img src="${elem.imageSrc}" alt="">
-          <p>${elem.title}</p>
-          <p>$${elem.price}</p>
+        <div class="product-image" data-index="${index}">
+          <img src="${elem.image}"  class="product-image" alt="">
+          <p class="product-title">${elem.title}</p>
+          <p class="product-price">$${elem.price}</p>
           <button class="btn-del">delete</button>
         </div>
       `);
@@ -352,3 +371,31 @@ $(document).ready(function () {
     });
   });
 });
+const error = (err) => {
+  const con = $("#container");
+  con.text(err);
+  getByBody.append(con);
+};
+const loginDiv =
+  $(`<div class="login"><h1>Login</h1><input type="text" class="user" placeholder="UserName">
+<input type="password" class="pass" placeholder="password"></br><button class='submit'>submit</button><h2><a href="#" class="reg">Registration</a></h2></div>`);
+$("#login").click(() => {
+  // $("#about").remove()
+  createParentDiv.remove();
+  container.append(loginDiv);
+});
+const regDiv =
+  $(`<div class="registration"><h1>Login</h1><input type="email" class="pass" placeholder="password"><input type="text" class="user" placeholder="UserName">
+<input type="password" class="pass" placeholder="password"><input type="password" class="pass" placeholder="con password"></br><button class='submit'>submit</button>`);
+const select = $(".reg");
+select.click(() => {});
+const darkThem = $(".them");
+darkThem.click(() => {
+  $("#parent-div").css("background", "black");
+  $("p").css("color", "white");
+  darkThem.click(() => {
+    $("#parent-div").css("background", "white");
+    $("p").css("color", "black");
+  });
+});
+$(".submit").click(() => {});

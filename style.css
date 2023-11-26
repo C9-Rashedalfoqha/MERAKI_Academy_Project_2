@@ -5,6 +5,7 @@
 body {
   background-color: rgb(0, 0, 0);
   height: 100vh;
+  width: auto;
 }
 
 #nav {
@@ -32,7 +33,7 @@ li {
   padding: 30px;
   margin-left: 50px;
 }
-#parent-div {
+#parent-div,#cart-container{
   background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -41,7 +42,7 @@ li {
   gap: 100px;
   padding: 70px;
 }
-#div-img {
+#div-img,.product-image {
   border-radius: 10px;
   padding: 10px;
   height: 500px;
@@ -101,9 +102,65 @@ li {
 }
 #ti,#p-ti{
 text-align: center;  
+width: 700px;
+position: relative;
+left: 650px;
+top: 50px;
+font-size: larger;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-indent: 10px;
+letter-spacing: 2px;
+
+
 
 }
+#ti{
+  font-size: 30px;
+  border-bottom: 1px solid rgb(236, 219, 119);
+}
+
 #about{
   display: inline-block;
   
+}
+h1{
+  color: red;
+}
+.them{
+  padding: 0;
+}
+.login{
+ display: flex ;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ border: 1px solid red;
+ width: 500px;
+ height: 700px;
+ position: relative;
+ left: 700px;
+ margin-top: 20px;
+}
+.user,.pass{
+  width: 300px;
+  height: 30px;
+  margin: 10px;
+  box-shadow: 3px 3px;
+  
+  
+}
+.submit{
+  width: 300px;
+  height: 30px;
+  box-shadow: 3px 3px;
+}
+.reg{
+  margin-top:300px;
+}
+li{
+  list-style-type: none;
+}
+#fav-list{
+  display: inline-block;
+
 }
