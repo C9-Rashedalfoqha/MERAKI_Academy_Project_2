@@ -292,6 +292,8 @@ const ajaxProduct = (data) => {
   });
 };
 const addToList = (index) => {
+  getByBody.append(cartContainer);
+
   addToCart.push(ahmad[index]);
   // console.log("Product added to cart:", elem[index]);
   console.log("Cart contents:", addToCart);
@@ -334,7 +336,6 @@ About.click(() => {
 });
 
 const cartContainer = $(`<div id="cart-container"></div>`);
-getByBody.append(cartContainer);
 
 const cart = $(".fa");
 cart.click(() => {
