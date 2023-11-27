@@ -259,8 +259,8 @@ const ajaxProduct = (data) => {
 
     createProductDiv.append(
       createImgTag,
-      fav,
       title,
+      fav,
       paragraph,
       price,
       buttonAdd

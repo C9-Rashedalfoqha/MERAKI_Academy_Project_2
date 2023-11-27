@@ -20,6 +20,7 @@ body {
 }
 a {
   text-decoration: none;
+  color: white;
 }
 li {
   padding: 30px;
@@ -34,15 +35,15 @@ li {
   margin-left: 50px;
 }
 .fav-elem {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
   display: grid;
   justify-content: center;
 }
 #parent-div {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   justify-content: center;
   gap: 100px;
   padding: 70px;
@@ -54,7 +55,7 @@ li {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   justify-content: center;
-  gap: 100px;
+  gap: 90px;
   padding: 70px;
 }
 #div-img,
@@ -65,7 +66,7 @@ li {
 }
 .product-image {
   height: 250px;
-  width: 250px;
+  width: 300px;
 }
 #title {
   display: inline-block;
@@ -106,7 +107,7 @@ li {
 }
 .product-item {
   height: 650px;
-  padding: 10px;
+  width: auto;
 }
 #add-cart {
   position: relative;
@@ -181,10 +182,20 @@ li {
   margin: auto;
   padding: 5px;
 }
+.product-description{
+  font-size: 14px;
+}
+.product-title{
+  font-size: 14px;
+}
 #product {
   display: inline-block;
   width: 300px;
+  position: relative;
+  left: 765px;
+  top: 50px;
 }
+
 .them {
   background-color: azure;
   width: 70px;
@@ -215,7 +226,7 @@ li {
 }
 a {
   font: bold;
-  color: white;
+  color: rgb(199, 199, 199);
   font-size: 24px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -223,6 +234,11 @@ a {
   width: 40px;
   height: 40px;
   transition: width 2s;
+  
+}
+.title{
+  color: rgb(255, 255, 255);
+  font-size: 18px;
   
 }
 #search:hover{
@@ -435,7 +451,7 @@ a {
     width: auto;
     font-family: "Courier New", Courier, monospace;
     position: relative;
-    left: 800px;
+    left: 400px;
   }
   a {
     font: bold;
@@ -471,4 +487,8 @@ a {
 }
 @media only screen and (max-width: 375px){
 
+}
+p{
+  color: white;
+  font-size: 14px;
 }
