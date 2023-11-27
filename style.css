@@ -50,9 +50,8 @@ li {
 }
 #cart-container {
   background-color: rgb(255, 255, 255);
-  height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   justify-content: center;
   gap: 90px;
@@ -237,7 +236,7 @@ a {
   
 }
 .title{
-  color: rgb(255, 255, 255);
+  color: rgb(179, 179, 179);
   font-size: 18px;
   
 }

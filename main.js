@@ -196,6 +196,8 @@ getByBody.append(container);
 const createParentDiv = $(`<div id="parent-div"></div>`);
 const ajaxProduct = (data) => {
   ahmad = data;
+  const favList = $(`<div id="fav-list"></div>`);
+
   data.forEach((elem, index) => {
     const createProductDiv = $(`<div class="product-item"></div>`);
     const createImgTag = $(
@@ -206,9 +208,10 @@ const ajaxProduct = (data) => {
       elem.fav ? "red" : "white"
     }">favorite</i>
   `);
-    const favList = $(`<div id="fav-list"></div>`);
+
 
     fav.click(() => {
+
       elem.fav = !elem.fav;
 
       fav.css("color", elem.fav ? "red" : "white");
@@ -229,9 +232,12 @@ const ajaxProduct = (data) => {
       }
       {
       }
+      
     });
     $("#fav").click(() => {
-      container.remove();
+      container.hide();
+      $("#cart-container").hide();
+
       getByBody.append(favList);
       favList.append(FavList);
     });
@@ -340,12 +346,11 @@ About.click(() => {
 });
 
 const cartContainer = $(`<div id="cart-container"></div>`);
-
 const cart = $(".fa");
 cart.click(() => {
   getByBody.append(cartContainer);
-
-  container.remove();
+$("#fav").hide()
+  container.hide();
   cartContainer.empty();
   if (addToCart.length === 0) {
     cartContainer.append(`<p class="empty">Your cart is empty</p>`);
@@ -395,8 +400,8 @@ $("#login").click(() => {
 const darkThem = $(".dark");
 darkThem.click(() => {
   darkThem.css("transform", "translate(40px)");
-  $("#parent-div").css("background-color", "black");
-  $("p").css("color", "white");
+  $("#parent-div").css("background-color", "white");
+  $("p,.title,.material-icons").css("color", "black");
 });
 
 $(".submit").click(() => {});
