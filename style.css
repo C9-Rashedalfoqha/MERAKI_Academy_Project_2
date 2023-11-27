@@ -471,3 +471,10 @@ a {
 @media only screen and (max-width: 375px){
 
 }
+#cart-container{
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  justify-content: center;
+  gap: 100px;
+  padding: 70px;
+}
