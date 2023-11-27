@@ -177,8 +177,11 @@ const navPar = $(`
         <li id="about"><a href="#">About</a></li>
         <li id="fav"><a href="#">favList</a></li>
         <li><a href="#"><i style="font-size:24px" class="fa">&#xf07a;</i></a></li>
-        <div class="them"><button class="dark"></button></div>
-        <li id="login"><a href="#">login</a></li>
+        
+        <li id="login"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+        <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+      login</svg></a></li>
+        <div class="them"><button class="dark" id="white"></button></div>
 
 
       </ul>
@@ -230,7 +233,7 @@ const ajaxProduct = (data) => {
     $("#fav").click(() => {
       container.remove();
       getByBody.append(favList);
-      favList.append(FavList)
+      favList.append(FavList);
     });
     const buttonAdd = $(`
     <button class="add-to-cart" data-index="${index}">Add to Cart</button>
@@ -262,7 +265,7 @@ const ajaxProduct = (data) => {
       price,
       buttonAdd
     );
-  
+
     container.append(createParentDiv);
     createParentDiv.append(createProductDiv);
 
@@ -279,17 +282,17 @@ const ajaxProduct = (data) => {
       <p class="product-paragraph">${elem.description}</p>
       <p>${elem.id}</p>
     `);
-    const buttonAddInfo=$(`<button class="add-to-cart" data-index="${index}">Add to Cart</button>`)
+      const buttonAddInfo = $(
+        `<button class="add-to-cart" data-index="${index}">Add to Cart</button>`
+      );
       container.append(divProduct);
       divProduct.append(createImg);
-      divProduct.append(buttonAddInfo)
-      buttonAddInfo.click(()=>{
-    addToList(index)
-      })
+      divProduct.append(buttonAddInfo);
+      buttonAddInfo.click(() => {
+        addToList(index);
+      });
     });
-    
   });
-
 };
 const addToList = (index) => {
   addToCart.push(ahmad[index]);
@@ -328,22 +331,21 @@ const about = $(`
 `);
 
 About.click(() => {
-
   createParentDiv.hide();
   divAbout.append(about);
   container.append(divAbout);
 });
 
-
+const cartContainer = $(`<div id="cart-container"></div>`);
 
 const cart = $(".fa");
 cart.click(() => {
-  const cartContainer = $(`<div id="cart-container"></div>`);
-getByBody.append(cartContainer);
+  getByBody.append(cartContainer);
+
   container.remove();
   cartContainer.empty();
   if (addToCart.length === 0) {
-    cartContainer.append(`<p>Your cart is empty</p>`);
+    cartContainer.append(`<p class="empty">Your cart is empty</p>`);
   } else {
     addToCart.forEach((elem, index) => {
       const cartElem = $(`
@@ -382,24 +384,26 @@ const loginDiv =
   $(`<div class="login"><h1>Login</h1><input type="text" class="user" placeholder="UserName">
 <input type="password" class="pass" placeholder="password"></br><button class='submit'>submit</button><h2><a href="#" class="reg">Registration</a></h2></div>`);
 $("#login").click(() => {
-  $("#About").hide()
+  $("#About").hide();
   createParentDiv.hide();
   container.append(loginDiv);
 });
 const regDiv =
   $(`<div class="registration"><h1>Login</h1><input type="email" class="pass" placeholder="password"><input type="text" class="user" placeholder="UserName">
-<input type="password" class="pass" placeholder="password"><input type="password" class="pass" placeholder="con password"></br><button class='submit'>submit</button>`);
+<input type="password" class="pass" placeholder="password"><input type="password" class="pass" placeholder="con password"></br><button class='submit'>submit</button></div>`);
 const select = $(".reg");
-select.click(() => {});
+select.click(() => {
+  loginDiv.hide()
+  container.append(regDiv)
+
+});
 const darkThem = $(".dark");
 darkThem.click(() => {
-  $("#parent-div").css("background", "black");
+  darkThem.css("transform", "translate(40px)");
+  $("#parent-div").css("background-color", "black");
   $("p").css("color", "white");
-  darkThem.click(() => {
-    $("#parent-div").css("background", "white");
-    $("p").css("color", "black");
-  });
 });
+
 $(".submit").click(() => {});
 // const divFilter=$(`<div><h1>filter</h1></div>`)
 // container.append(divFilter)

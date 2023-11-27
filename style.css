@@ -50,9 +50,10 @@ li {
 }
 #cart-container{
   background-color: rgb(255, 255, 255);
+  height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
   justify-content: center;
   gap: 100px;
   padding: 70px;
@@ -193,6 +194,9 @@ li{
   width: 70px;
   height: 30px;
   border-radius: 50px;
+  position: relative;
+  top: 28px;
+  right: 10px;
 }
 .dark{
   background-color: rgb(0, 0, 0);
@@ -201,4 +205,20 @@ li{
   border-radius: 50px;
   position: relative;
   top: 1px;
+  transition: width 4s, height 4s ;
+
+}
+#login{
+  margin-right: 20px;
+}
+.empty{
+  font-size: 25px;
+  width: auto;
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+  
+  left: 800px;
+}
+a{
+  color: white;
 }
