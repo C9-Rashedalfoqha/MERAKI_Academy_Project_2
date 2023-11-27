@@ -172,7 +172,7 @@ const navPar = $(`
     <nav id="nav">
       <h1 id="logo">LOGO</h1>
       <ul id="par">
-        <input id="search" type="text" placeholder="search..." />
+        <input id="search" type="text" placeholder="Search..." />
         <li id="home"><a href="#">Home</a></li>
         <li id="about"><a href="#">About</a></li>
         <li id="fav"><a href="#">favList</a></li>
@@ -243,7 +243,7 @@ const ajaxProduct = (data) => {
       addToList(index);
     });
     const title = $(
-      `<p class="product-title"><a href="#">${elem.title}</a></p>`
+      `<p class="product-title"><a class="title" href="#">${elem.title}</a></p>`
     );
     const paragraph = $(
       `<p class="product-description">${elem.description}</p>`
@@ -270,17 +270,18 @@ const ajaxProduct = (data) => {
     createParentDiv.append(createProductDiv);
 
     title.click(() => {
-      createParentDiv.remove();
+      createParentDiv.hide();
       const divProduct = $(`<div id="product"></div>`);
       const createImg = $(`
+      
+      <img class="product-image" src="${elem.image}" alt="">
+      
+      <br/>
       <p class="product-title">${elem.title}
         
       </p>
       <br/>
-      <img class="product-image" src="${elem.image}" alt="">
-      <br/>
       <p class="product-paragraph">${elem.description}</p>
-      <p>${elem.id}</p>
     `);
       const buttonAddInfo = $(
         `<button class="add-to-cart" data-index="${index}">Add to Cart</button>`
@@ -382,21 +383,13 @@ const error = (err) => {
 };
 const loginDiv =
   $(`<div class="login"><h1>Login</h1><input type="text" class="user" placeholder="UserName">
-<input type="password" class="pass" placeholder="password"></br><button class='submit'>submit</button><h2><a href="#" class="reg">Registration</a></h2></div>`);
+<input type="password" class="pass" placeholder="password"></br><button class='submit'>submit</button><li class="reg"><a href="#" class="reg">Registration</a></li></div>`);
 $("#login").click(() => {
   $("#About").hide();
   createParentDiv.hide();
   container.append(loginDiv);
 });
-const regDiv =
-  $(`<div class="registration"><h1>Login</h1><input type="email" class="pass" placeholder="password"><input type="text" class="user" placeholder="UserName">
-<input type="password" class="pass" placeholder="password"><input type="password" class="pass" placeholder="con password"></br><button class='submit'>submit</button></div>`);
-const select = $(".reg");
-select.click(() => {
-  loginDiv.hide()
-  container.append(regDiv)
 
-});
 const darkThem = $(".dark");
 darkThem.click(() => {
   darkThem.css("transform", "translate(40px)");
@@ -407,3 +400,11 @@ darkThem.click(() => {
 $(".submit").click(() => {});
 // const divFilter=$(`<div><h1>filter</h1></div>`)
 // container.append(divFilter)
+const regDiv =
+  $(`<div class="registration"><h1>Login</h1><input type="email" class="pass" placeholder="password"><input type="text" class="user" placeholder="UserName">
+<input type="password" class="pass" placeholder="password"><input type="password" class="pass" placeholder="con password"></br><button class='submit'>submit</button></div>`);
+const select = $(".reg ");
+select.click(() => {
+  loginDiv.hide();
+  container.append(regDiv);
+});

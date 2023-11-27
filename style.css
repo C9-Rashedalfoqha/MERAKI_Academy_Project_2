@@ -33,13 +33,12 @@ li {
   padding: 30px;
   margin-left: 50px;
 }
-.fav-elem{
+.fav-elem {
   background-color: rgb(255, 255, 255);
   display: grid;
   justify-content: center;
-
 }
-#parent-div{
+#parent-div {
   background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -48,17 +47,18 @@ li {
   gap: 100px;
   padding: 70px;
 }
-#cart-container{
+#cart-container {
   background-color: rgb(255, 255, 255);
   height: 100vh;
   display: grid;
-  grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   justify-content: center;
   gap: 100px;
   padding: 70px;
 }
-#div-img,.product-image {
+#div-img,
+.product-image {
   border-radius: 10px;
   padding: 10px;
   height: 500px;
@@ -84,16 +84,16 @@ li {
 #titleOnly {
   display: inline-block;
   font-size: 35px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   position: relative;
   left: 500px;
   top: 200px;
   margin: 50px 50px 0 50px;
   color: black;
-
 }
 #paragraph {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 24px;
   display: inline-block;
   position: relative;
@@ -103,93 +103,89 @@ li {
   padding: 20px;
   margin: 0px 50px 50px 50px;
   color: black;
-
 }
-.product-item{
-  height:650px;
+.product-item {
+  height: 650px;
   padding: 10px;
 }
-#add-cart{
+#add-cart {
   position: relative;
   left: 550px;
   bottom: 500px;
   padding: 10px;
-  border-radius: 5px ;
+  border-radius: 5px;
   box-shadow: 10px;
 }
-#ti,#p-ti{
-text-align: center;  
-width: 700px;
-position: relative;
-left: 650px;
-top: 50px;
-font-size: larger;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-text-indent: 10px;
-letter-spacing: 2px;
-
-
-
+#ti,
+#p-ti {
+  text-align: center;
+  width: 700px;
+  position: relative;
+  left: 650px;
+  top: 50px;
+  font-size: larger;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-indent: 10px;
+  letter-spacing: 2px;
 }
-#ti{
+#ti {
   font-size: 30px;
   border-bottom: 1px solid rgb(236, 219, 119);
 }
 
-#about{
+#about {
   display: inline-block;
-  
 }
-h1{
+h1 {
   color: red;
 }
-.them{
+.them {
   padding: 0;
 }
-.login{
- display: flex ;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- border: 1px solid red;
- width: 500px;
- height: 700px;
- position: relative;
- left: 700px;
- margin-top: 20px;
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  width: 500px;
+  height: 700px;
+  position: relative;
+  left: 700px;
+  margin-top: 20px;
 }
-.user,.pass{
+.user,
+.pass {
   width: 300px;
   height: 30px;
   margin: 10px;
   box-shadow: 3px 3px;
-  
-  
 }
-.submit{
+.submit {
   width: 300px;
   height: 30px;
   box-shadow: 3px 3px;
 }
-.reg{
-  margin-top:300px;
+.reg {
+  margin-top: 300px;
 }
-li{
+li {
   list-style-type: none;
 }
-#fav-list{
+#fav-list {
   display: inline-block;
-
 }
-.product-title,.product-description,.product-title{
+.product-title,
+.product-description,
+.product-title {
   margin: auto;
   padding: 5px;
 }
-#product{
+#product {
   display: inline-block;
   width: 300px;
 }
-.them{
+.them {
   background-color: azure;
   width: 70px;
   height: 30px;
@@ -198,27 +194,280 @@ li{
   top: 28px;
   right: 10px;
 }
-.dark{
+.dark {
   background-color: rgb(0, 0, 0);
   width: 28px;
   height: 28px;
   border-radius: 50px;
   position: relative;
   top: 1px;
-  transition: width 4s, height 4s ;
-
+  transition: width 4s, height 4s;
 }
-#login{
+#login {
   margin-right: 20px;
 }
-.empty{
+.empty {
   font-size: 25px;
   width: auto;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   position: relative;
-  
   left: 800px;
 }
-a{
+a {
+  font: bold;
   color: white;
+  font-size: 24px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#search {
+  width: 40px;
+  height: 40px;
+  transition: width 2s;
+  
+}
+#search:hover{
+  width: 200px;
+}
+@media only screen and (max-width: 1050px){
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    width: auto;
+  }
+  
+  #nav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  #par {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  li {
+    padding: 20px;
+  }
+  #search {
+    height: 18px;
+    margin-top: 30px;
+    margin-right: 40px;
+  }
+  #logo {
+    padding: 20px;
+    margin-left: 30px;
+  }
+  .fav-elem {
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    justify-content: center;
+  }
+  #parent-div {
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    gap: 100px;
+    padding: 70px;
+  }
+  #cart-container {
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    gap: 100px;
+    padding: 70px;
+  }
+  #div-img,
+  .product-image {
+    border-radius: 10px;
+    padding: 10px;
+    height: 300px;
+  }
+  .product-image {
+    height: 250px;
+    width: 250px;
+  }
+  #title {
+    display: inline-block;
+    text-align: center;
+    margin-left: 50px;
+  }
+  
+  #container {
+    height: 20vh;
+  }
+  .product-image {
+    margin: 50px 50px 0 50px;
+    height: 300px;
+    width: 300px;
+  }
+  .product-title {
+    display: inline-block;
+    font-size:14px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    margin: 5px 50px 0 50px;
+    color: rgb(255, 255, 255);
+  }
+  .product-description {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 14px;
+    display: inline-block;
+    padding: 10px;
+    margin: 0px 50px 50px 50px;
+    color: rgb(255, 255, 255);
+  }
+  .product-item  {
+    height: 600;
+    padding: 10px;
+  }
+  #add-cart {
+    position: relative;
+    left: 550px;
+    bottom: 500px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 10px;
+  }
+  #ti,
+  #p-ti {
+    text-align: center;
+    width: 700px;
+    position: relative;
+    left: 650px;
+    top: 50px;
+    font-size: 14px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    text-indent: 10px;
+    letter-spacing: 2px;
+  }
+  #ti {
+    font-size: 10px;
+    border-bottom: 1px solid rgb(236, 219, 119);
+  }
+  
+  #about {
+    display: inline-block;
+  }
+  h1 {
+    color: red;
+  }
+  .them {
+    padding: 0;
+  }
+  .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+    width: 350px;
+    height: 400px;
+    position: relative;
+    left: 400px;
+    margin-top: 190px;
+  }
+  .user,
+  .pass {
+    width: 200px;
+    height: 30px;
+    margin: 10px;
+    box-shadow: 3px 3px;
+  }
+  .submit {
+    width: 200px;
+    height: 30px;
+    box-shadow: 3px 3px;
+  }
+  .reg {
+    margin-top: 50px;
+  }
+  li {
+    list-style-type: none;
+  }
+  #fav-list {
+    display: inline-block;
+  }
+  .product-title,
+  .product-description ,#product{
+    margin: auto;
+    padding: 5px;
+  }
+  #product {
+    display: inline-block;
+    width: 200px;
+  }
+  .them {
+    background-color: azure;
+    width: 70px;
+    height: 30px;
+    border-radius: 50px;
+    position: relative;
+    top: 28px;
+    right: 10px;
+  }
+  .dark {
+    background-color: rgb(0, 0, 0);
+    width: 28px;
+    height: 28px;
+    border-radius: 50px;
+    position: relative;
+    top: 1px;
+    transition: width 4s, height 4s;
+  }
+  #login {
+    margin-right: 20px;
+  }
+  .empty {
+    font-size: 25px;
+    width: auto;
+    font-family: "Courier New", Courier, monospace;
+    position: relative;
+    left: 800px;
+  }
+  a {
+    font: bold;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  #search {
+    width: 23px;
+    height: 23px;
+    transition: width 2s;
+    position: relative;
+    bottom: 7px;
+    
+  }
+  #search:hover{
+    width: 200px;
+  }
+  .title{
+    font-size: 14px;
+    
+  }
+  .material-icons{
+    padding: 15px;
+  }
+  #product{
+    display: grid;
+  }
+  p{
+    color: white;
+  }
+}
+@media only screen and (max-width: 375px){
+
 }
