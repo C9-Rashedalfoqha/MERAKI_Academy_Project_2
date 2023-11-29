@@ -8,7 +8,7 @@ body {
 }
 
 #nav {
-  background-color: rgb(29, 29, 29);
+  background-color: #30233f;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -31,18 +31,17 @@ li {
   margin-left: 50px;
 }
 .fav-elem {
- display: inline-block;
+  display: inline-block;
 }
 #parent-div {
-  background-color: rgb(255, 255, 255);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   justify-content: center;
   gap: 100px;
   padding: 70px;
 }
-#About{
+#About {
   height: 100vh;
 }
 
@@ -58,11 +57,12 @@ li {
 .product-image {
   height: 250px;
   width: 300px;
+  border-radius: 15px;
 }
 .title {
   display: inline-block;
   text-align: start;
-font-size: 24px;  
+  font-size: 24px;
 }
 
 #container {
@@ -71,9 +71,11 @@ font-size: 24px;
 
 .product-item {
   background-color: white;
-  border: .5px solid rgb(15, 15, 15);
+  border: 0.5px solid rgb(15, 15, 15);
   height: 500px;
   width: 302px;
+  border-radius: 15px;
+  box-shadow: 0.5px 5px 10px 10px;
 }
 #ti,
 #p-ti {
@@ -89,7 +91,7 @@ font-size: 24px;
 }
 #ti {
   font-size: 30px;
-  border-bottom: 1px solid rgb(236, 219, 119);
+  border-bottom: 1px solid rgb(0, 0, 0);
 }
 
 #about {
@@ -119,19 +121,19 @@ h1 {
   height: 0px;
   margin: 10px;
   box-shadow: 1px 1px;
-  transition:height 1s;
-
+  transition: height 1s;
 }
-.user,.pass{
+.user,
+.pass {
   width: 300px;
   height: 30px;
   margin: 10px;
   box-shadow: 1px 1px;
 }
-#pass:hover{
-height: 40px;
+#pass:hover {
+  height: 40px;
 }
-#user:hover{
+#user:hover {
   height: 40px;
 }
 .submit {
@@ -141,6 +143,8 @@ height: 40px;
 }
 .reg {
   margin-top: 300px;
+  font-weight: bold;
+  color: black;
 }
 li {
   list-style-type: none;
@@ -148,17 +152,17 @@ li {
 #fav-list {
   background-color: rgb(255, 255, 255);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   justify-content: center;
-  padding: 50px ;
-  gap: 70px   ;
+  padding: 50px;
+  gap: 70px;
 }
 .product-title,
-.product-description{
+.product-description {
   margin: auto;
   padding: 10px;
 }
-.product-description{
+.product-description {
   font-size: 14px;
 }
 #product {
@@ -201,55 +205,100 @@ a {
   font: bold;
   color: rgb(199, 199, 199);
   font-size: 24px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 #search {
-  width: 40px;
+  width: 60px;
   height: 40px;
   transition: width 2s;
   margin-right: 40px;
-  margin-top:28px;
-  
+  margin-top: 28px;
 }
-.title{
+.title {
   color: rgb(0, 0, 0);
   font-size: 14px;
   width: auto;
   text-align: start;
   padding: 0;
-  
+  font-weight: bold;
 }
-#search:hover{
+#search:hover {
   width: 200px;
 }
 
-.product-price{
+.product-price {
   text-align: center;
+  font-weight: bold;
 }
-.add-to-cart{
+.add-to-cart {
   position: relative;
   left: 32%;
   border-radius: 15px;
   width: 120px;
+  font-weight: 600;
 }
-.add-to-cart:hover{
+.btn-del{
+  border-radius: 15px;
+  width: 120px;
+}
+.btn-del:hover{
+  background-color: red;
+}
+.add-to-cart:hover {
   background-color: gold;
 }
-.material-icons{
+.material-icons {
   color: rgb(0, 0, 0);
   position: relative;
   left: 90%;
   top: 2%;
 }
-label{
-font-weight: bold;
-position: relative;
-right: 0110px;
+label {
+  font-weight: bold;
+  position: relative;
+  right: 0110px;
 }
-#p-ti{
+#p-ti {
   text-align: start;
 }
-@media only screen and (max-width: 1050px){
+.product-image-about {
+  position: relative;
+  right: 500px;
+  width: 300px;
+  height: 400px;
+  border: 1px solid black;
+}
+#add-to-cart-about {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  right: 800px;
+  margin-right: 00px;
+  bottom:330px;
+  width: 400px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.product-title-about {
+  display: inline-block;
+  position: relative;
+  bottom: 400px;
+  right: 60%;
+  width: 700px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.product-paragraph-about {
+display: inline-block;
+  position: relative;
+  bottom: 400px;
+  right:60%;
+  width: 700px;
+  font-size: 24px;
+  font-weight: 400;
+}
+@media only screen and (max-width: 1050px) {
   * {
     padding: 0;
     margin: 0;
@@ -259,7 +308,7 @@ right: 0110px;
     height: 100vh;
     width: auto;
   }
-  
+
   #nav {
     display: flex;
     justify-content: space-between;
@@ -291,7 +340,7 @@ right: 0110px;
   }
   #parent-div {
     display: grid;
-    grid-template-columns:  1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
   }
@@ -305,28 +354,29 @@ right: 0110px;
     gap: 100px;
     padding: 70px;
   }
-  
+
   .product-image {
     height: 300px;
     width: 300px;
   }
   .product-title {
     display: inline-block;
-    font-size:14px;
+    font-size: 14px;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
     margin: 5px 50px 0 50px;
     color: rgb(255, 255, 255);
   }
   .product-description {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     font-size: 14px;
     display: inline-block;
     padding: 10px;
     margin: 0px 50px 50px 50px;
     color: rgb(255, 255, 255);
   }
- 
+
   #add-cart {
     position: relative;
     left: 550px;
@@ -343,7 +393,8 @@ right: 0110px;
     left: 200px;
     top: 50px;
     font-size: 16px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     text-indent: 10px;
     letter-spacing: 2px;
   }
@@ -351,7 +402,7 @@ right: 0110px;
     font-size: 20px;
     border-bottom: 1px solid rgb(236, 219, 119);
   }
-  
+
   #about {
     display: inline-block;
   }
@@ -391,14 +442,13 @@ right: 0110px;
   li {
     list-style-type: none;
   }
-  p
-  {
+  p {
     color: black;
-
   }
 
   .product-title,
-  .product-description ,#product{
+  .product-description,
+  #product {
     margin: auto;
     padding: 5px;
   }
@@ -438,7 +488,8 @@ right: 0110px;
     font: bold;
     color: rgb(255, 255, 255);
     font-size: 14px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
   #search {
     width: 23px;
@@ -446,29 +497,28 @@ right: 0110px;
     transition: width 2s;
     position: relative;
     bottom: 7px;
-    
   }
-  #search:hover{
+  #search:hover {
     width: 200px;
   }
-  .title{
+  .title {
     font-size: 14px;
-    
   }
-  .material-icons{
+  .material-icons {
     padding: 15px;
   }
-  #product{
+  #product {
     display: grid;
   }
-  p{
+  p {
     color: rgb(0, 0, 0);
   }
-  .material-icons{
-  position: relative;
-left: 24%;  }
+  .material-icons {
+    position: relative;
+    left: 24%;
+  }
 }
-@media only screen and (max-width: 375px){
+@media only screen and (max-width: 375px) {
   * {
     padding: 0;
     margin: 0;
@@ -478,7 +528,7 @@ left: 24%;  }
     height: 100vh;
     width: auto;
   }
-  
+
   #nav {
     display: flex;
     justify-content: space-between;
@@ -510,7 +560,7 @@ left: 24%;  }
   }
   #parent-div {
     display: grid;
-    grid-template-columns: 1fr ;
+    grid-template-columns: 1fr;
     justify-content: center;
     align-items: center;
   }
@@ -524,28 +574,29 @@ left: 24%;  }
     gap: 100px;
     padding: 70px;
   }
-  
+
   .product-image {
     height: 300px;
     width: 300px;
   }
   .product-title {
     display: inline-block;
-    font-size:14px;
+    font-size: 14px;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
     margin: 5px 50px 0 50px;
     color: rgb(255, 255, 255);
   }
   .product-description {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     font-size: 14px;
     display: inline-block;
     padding: 10px;
     margin: 0px 50px 50px 50px;
     color: rgb(255, 255, 255);
   }
- 
+
   #add-cart {
     position: relative;
     left: 550px;
@@ -562,7 +613,8 @@ left: 24%;  }
     left: 200px;
     top: 50px;
     font-size: 16px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     text-indent: 10px;
     letter-spacing: 2px;
   }
@@ -570,7 +622,7 @@ left: 24%;  }
     font-size: 20px;
     border-bottom: 1px solid rgb(236, 219, 119);
   }
-  
+
   #about {
     display: inline-block;
   }
@@ -610,14 +662,13 @@ left: 24%;  }
   li {
     list-style-type: none;
   }
-  p
-  {
+  p {
     color: black;
-
   }
 
   .product-title,
-  .product-description ,#product{
+  .product-description,
+  #product {
     margin: auto;
     padding: 5px;
   }
@@ -657,7 +708,8 @@ left: 24%;  }
     font: bold;
     color: rgb(255, 255, 255);
     font-size: 14px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
   #search {
     width: 23px;
@@ -665,22 +717,20 @@ left: 24%;  }
     transition: width 2s;
     position: relative;
     bottom: 7px;
-    
   }
-  #search:hover{
+  #search:hover {
     width: 200px;
   }
-  .title{
+  .title {
     font-size: 14px;
-    
   }
-  .material-icons{
+  .material-icons {
     padding: 15px;
   }
-  #product{
+  #product {
     display: grid;
   }
-  p{
+  p {
     color: rgb(0, 0, 0);
   }
 }
@@ -689,15 +739,16 @@ left: 24%;  }
   #cart-container {
     grid-template-columns: 1fr;
   }
-#nav{
-  flex-wrap: wrap;
-}
+  #nav {
+    flex-wrap: wrap;
+  }
   .login {
     width: 100%;
     max-width: none;
     left: 0;
   }
-.product-item{
-  position: relative;
-  margin-left: 15%;
-}}
+  .product-item {
+    position: relative;
+    margin-left: 15%;
+  }
+}

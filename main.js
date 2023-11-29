@@ -207,7 +207,7 @@ const ajaxProduct = (data) => {
     );
     const fav = $(`
     <i class="material-icons" style="font-size:25px;color:${
-      elem.fav ? "red" :"black"
+      elem.fav ? "red" : "black"
     }">favorite</i>
   `);
 
@@ -250,20 +250,10 @@ const ajaxProduct = (data) => {
     const title = $(
       `<p class="product-title"><a class="title" href="#">${elem.title}</a></p>`
     );
-    // const paragraph = $(
-    //   `<p class="product-description">${elem.description}</p>`
-    // );
+
     const price = $(`<p class="product-price">$${elem.price}</p>`);
-    // const rate = $(`
-    //   <span class="fa fa-star checked"></span>
-    //   <span class="fa fa-star checked"></span>
-    //   <span class="fa fa-star checked"></span>
-    //   <span class="fa fa-star"></span>
-    //   <span class="fa fa-star"></span>
-    // `);
 
     createProductDiv.append(createImgTag, title, fav, price, buttonAdd);
-
     container.append(createParentDiv);
     createParentDiv.append(createProductDiv);
 
@@ -272,21 +262,25 @@ const ajaxProduct = (data) => {
       const divProduct = $(`<div id="product"></div>`);
       const createImg = $(`
       
-      <img class="product-image" src="${elem.image}" alt="">
+      <img class="product-image-about" src="${elem.image}" alt="">
       
       <br/>
-      <p class="product-title">${elem.title}
+      <p class="product-title-about">${elem.title}
         
       </p>
       <br/>
-      <p class="product-paragraph">${elem.description}</p>
+      <p class="product-paragraph-about">${elem.description}</p>
+      <p class="product-paragraph-about">$${elem.price}</p>
     `);
       const buttonAddInfo = $(
-        `<button class="add-to-cart" data-index="${index}">Add to Cart</button>`
+        `<button class="add-to-cart"  id="add-to-cart-about" data-index="${index}">Add to Cart</button>
+        `
       );
       container.append(divProduct);
       divProduct.append(createImg);
       divProduct.append(buttonAddInfo);
+      divProduct.append(createParentDiv);
+
       buttonAddInfo.click(() => {
         addToList(index);
       });
@@ -313,24 +307,11 @@ const about = $(`
   <h1 id="ti">About</h1>
   <br/>
   <p id="p-ti">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni aut atque dignissimos itaque
-    provident unde dolor modi laudantium impedit odit, cupiditate a, omnis magnam delectus tempore
-    quo asperiores! Laudantium, saepeLorem ipsum dolor sit amet consectetur adipisicing elit.
-    Magni aut atque dignissimos itaque provident unde dolor modi laudantium impedit odit, cupiditate
-    a, omnis magnam delectus tempore quo asperiores! Laudantium, saepeLorem ipsum dolor sit amet
-    consectetur adipisicing elit. Magni aut atque dignissimos itaque provident unde dolor modi
-    laudantium impedit odit, cupiditate a, omnis magnam delectus tempore quo asperiores! Laudantium,
-    saepeLorem ipsum dolor sit amet consectetur adipisicing elit. Magni aut atque dignissimos itaque
-    provident unde dolor modi laudantium impedit odit, cupiditate a, omnis magnam delectus tempore
-    quo asperiores! Laudantium, saepeLorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-    aut atque dignissimos itaque provident unde dolor modi laudantium impedit odit, cupiditate a,
-    omnis magnam delectus tempore quo asperiores! Laudantium, saepeLorem ipsum dolor sit amet
-    consectetur adipisicing elit. Magni aut atque dignissimos itaque provident unde dolor modi
-    laudantium impedit odit, cupiditate a, omnis magnam delectus tempore quo asperiores! Laudantium,
-    saepe
+
+
+  An e-commerce site is a digital marketplace where businesses showcase and sell their products or services online. With a user-friendly interface, customers can easily navigate through product listings, each featuring detailed information, high-quality images, and customer reviews. The shopping cart allows users to select and review items before proceeding to a secure checkout process, where various payment options are available. Mobile responsiveness ensures a seamless experience across devices, while customer accounts offer personalized features and order tracking. The site prioritizes security measures such as encryption to protect sensitive data. Customer support, shipping details, and transparent return and refund policies contribute to a comprehensive and trustworthy online shopping experience.
   </p>
 `);
-
 About.click(() => {
   createParentDiv.hide();
   divAbout.append(about);
@@ -398,11 +379,17 @@ darkThem.click(() => {
   isDarkTheme = !isDarkTheme;
   if (isDarkTheme) {
     darkThem.css("transform", "translate(40px)");
-    $("#parent-div,#About, .product-item").css({"background-color": "black","border" : "1px solid white"});
-    $("p, .title, .material-icons").css("color", "white");
+    $("#parent-div,#About, .product-item").css({
+      "background-color": "#9B9B9B",
+      border: "1px solid white",
+    });
+    $("p, .title, .material-icons").css("color", "black");
   } else {
     darkThem.css("transform", "translate(0)");
-    $("#parent-div ,#About ,.product-item").css({"background-color": "white","border" : "1px solid black"});
+    $("#parent-div ,#About ,.product-item").css({
+      "background-color": "white",
+      border: "1px solid black",
+    });
     $("p, .title, .material-icons").css("color", "black");
   }
 });
@@ -427,20 +414,20 @@ REG.click(() => {
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
-    }else{
+    } else {
+      const newUser = {
+        email: email,
+        username: username,
+        password: password,
+      };
 
-    const newUser = {
-      email: email,
-      username: username,
-      password: password,
-    };
-    
-    users.push(newUser);
+      users.push(newUser);
 
-    localStorage.setItem("users", JSON.stringify(users));
+      localStorage.setItem("users", JSON.stringify(users));
 
-    alert("Registration successful. Please log in.");
-    regDiv.hide();
-    loginDiv.show();
- } });
+      alert("Registration successful. Please log in.");
+      regDiv.hide();
+      loginDiv.show();
+    }
+  });
 });
