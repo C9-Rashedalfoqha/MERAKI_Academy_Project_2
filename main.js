@@ -2,6 +2,8 @@ const addToCart = [] || JSON.parse(localStorage.getItem("cart"));
 const FavList = [] || JSON.parse(localStorage.getItem("fav"));
 const getByContainer = $(".container");
 let ahmad = [];
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
 $.ajax({
   url: "https://fakestoreapi.com/products",
   success: (data) => {
@@ -172,7 +174,7 @@ const navPar = $(`
     <nav id="nav">
       <h1 id="logo">LOGO</h1>
       <ul id="par">
-        <input id="search" type="text" placeholder="Search..." />
+        <input id="search" type="text" placeholder="Search..."  />
         <li id="home"><a href="#">Home</a></li>
         <li id="about"><a href="#">About</a></li>
         <li id="fav"><a href="#">favList</a></li>
@@ -205,13 +207,11 @@ const ajaxProduct = (data) => {
     );
     const fav = $(`
     <i class="material-icons" style="font-size:25px;color:${
-      elem.fav ? "red" : "white"
+      elem.fav ? "red" :"black"
     }">favorite</i>
   `);
 
-
     fav.click(() => {
-
       elem.fav = !elem.fav;
 
       fav.css("color", elem.fav ? "red" : "white");
@@ -220,7 +220,7 @@ const ajaxProduct = (data) => {
         const FavList = $(`<div class="fav-elem" date="index">
       <img  class="product-image" src="${elem.image}" alt="">
       <p class="product-title">${elem.title}</p>
-      <p>$${elem.price}</p>
+      <p> ${elem.description}</p>
     </div>`);
         favList.append(FavList);
       } else if (elem.fav === false) {
@@ -232,7 +232,6 @@ const ajaxProduct = (data) => {
       }
       {
       }
-      
     });
     $("#fav").click(() => {
       container.hide();
@@ -251,9 +250,9 @@ const ajaxProduct = (data) => {
     const title = $(
       `<p class="product-title"><a class="title" href="#">${elem.title}</a></p>`
     );
-    const paragraph = $(
-      `<p class="product-description">${elem.description}</p>`
-    );
+    // const paragraph = $(
+    //   `<p class="product-description">${elem.description}</p>`
+    // );
     const price = $(`<p class="product-price">$${elem.price}</p>`);
     // const rate = $(`
     //   <span class="fa fa-star checked"></span>
@@ -263,14 +262,7 @@ const ajaxProduct = (data) => {
     //   <span class="fa fa-star"></span>
     // `);
 
-    createProductDiv.append(
-      createImgTag,
-      title,
-      fav,
-      paragraph,
-      price,
-      buttonAdd
-    );
+    createProductDiv.append(createImgTag, title, fav, price, buttonAdd);
 
     container.append(createParentDiv);
     createParentDiv.append(createProductDiv);
@@ -349,7 +341,7 @@ const cartContainer = $(`<div id="cart-container"></div>`);
 const cart = $(".fa");
 cart.click(() => {
   getByBody.append(cartContainer);
-$("#fav").hide()
+  $("#fav").hide();
   container.hide();
   cartContainer.empty();
   if (addToCart.length === 0) {
@@ -389,29 +381,66 @@ const error = (err) => {
   getByBody.append(con);
 };
 const loginDiv =
-  $(`<div class="login"><h1>Login</h1><input type="text" class="user" placeholder="UserName">
-<input type="password" class="pass" placeholder="password"></br><button class='submit'>submit</button><li class="reg"><a href="#" class="reg">Registration</a></li></div>`);
+  $(`<div class="login"><h1>Login</h1><input type="text" class="user" id="user" placeholder="UserName"><label>Username</label>
+<input type="password" class="pass" id="pass" placeholder="password"><label>Password</label></br><button class='Submit'>submit</button></div>`);
+const REG = $(`<h2 class="reg"><a href="#" class="reg">Registration</a></h2>`);
+loginDiv.append(REG);
 $("#login").click(() => {
   $("#About").hide();
   createParentDiv.hide();
   container.append(loginDiv);
 });
+let isDarkTheme = false;
 
 const darkThem = $(".dark");
-darkThem.click(() => {
-  darkThem.css("transform", "translate(40px)");
-  $("#parent-div").css("background-color", "white");
-  $("p,.title,.material-icons").css("color", "black");
-});
 
-$(".submit").click(() => {});
-// const divFilter=$(`<div><h1>filter</h1></div>`)
-// container.append(divFilter)
+darkThem.click(() => {
+  isDarkTheme = !isDarkTheme;
+  if (isDarkTheme) {
+    darkThem.css("transform", "translate(40px)");
+    $("#parent-div,#About, .product-item").css({"background-color": "black","border" : "1px solid white"});
+    $("p, .title, .material-icons").css("color", "white");
+  } else {
+    darkThem.css("transform", "translate(0)");
+    $("#parent-div ,#About ,.product-item").css({"background-color": "white","border" : "1px solid black"});
+    $("p, .title, .material-icons").css("color", "black");
+  }
+});
 const regDiv =
-  $(`<div class="registration"><h1>Login</h1><input type="email" class="pass" placeholder="password"><input type="text" class="user" placeholder="UserName">
-<input type="password" class="pass" placeholder="password"><input type="password" class="pass" placeholder="con password"></br><button class='submit'>submit</button></div>`);
-const select = $(".reg ");
-select.click(() => {
+  $(`<div class="login"><h1>Register</h1><input type="email" class="user" placeholder="email"><input type="text" class="user" placeholder="UserName">
+<input type="password" class="pass" placeholder="password"><input type="password" class="pass" id="passs" placeholder="confirm Password"></br><button class='submit'>submit</button></div>`);
+REG.click(() => {
   loginDiv.hide();
   container.append(regDiv);
+
+  $(".submit").click(() => {
+    const email = $(".user:eq(0)").val();
+    const username = $(".user:eq(1)").val();
+    const password = $(".pass:eq(0)").val();
+    const confirmPassword = $("#passs:eq(1)").val();
+
+    if (!email || !username || !password || !confirmPassword) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }else{
+
+    const newUser = {
+      email: email,
+      username: username,
+      password: password,
+    };
+    
+    users.push(newUser);
+
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registration successful. Please log in.");
+    regDiv.hide();
+    loginDiv.show();
+ } });
 });
